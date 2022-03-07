@@ -1,0 +1,48 @@
+@mixin fxFill {
+  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
+}
+
+@mixin fxFlex {
+  display: flex;
+  flex: 1;
+}
+
+@mixin fxLayout($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin fxLayoutAlign($y-axis: flex-start, $x-axis: flex-start) {
+  justify-content: $y-axis;
+  align-items: $x-axis;
+}
+
+@mixin fxLayoutGap($direction: column, $gap: 16px) {
+  @if $direction == column {
+    & > *:not(:last-child) {
+      margin-bottom: $gap;
+    }
+  } @else {
+    & > *:not(:first-child) {
+      margin-left: $gap;
+    }
+  }
+}
+
+@mixin ellipsis($max-width) {
+  max-width: $max-width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin line-ellipsis($line: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+}
